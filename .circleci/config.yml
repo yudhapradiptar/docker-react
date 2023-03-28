@@ -43,9 +43,9 @@ jobs:
 workflows:
   deploy-workflow:
     jobs:
-    - build-test:
-    - deploy:
-        filters:
-          branches:
-            only:
-              - master
+      - build-test:
+      - deploy:
+          filters:
+            branches:
+              only:
+                - master
