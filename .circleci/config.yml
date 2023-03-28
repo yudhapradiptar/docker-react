@@ -4,7 +4,7 @@ jobs:
   build-test-deploy:
     working_directory: /app
     docker:
-      - image: 'cimg/base:stable'
+      - image: cimg/aws:2023.03
     steps:
       - checkout
       - setup_remote_docker
