@@ -15,8 +15,6 @@ jobs:
           name: test
           command: docker run -e CI=true yudhapradiptar/docker-react npm test
   deploy:
-    requires:
-      - build-test
     docker:
       - image: 'cimg/base:stable'
     steps:
@@ -37,6 +35,8 @@ workflows:
     jobs:
       - build-test
       - deploy:
+          requires:
+            - build-test
           filters:
             branches:
               only:
