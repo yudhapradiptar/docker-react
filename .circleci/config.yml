@@ -4,7 +4,8 @@ jobs:
   build-test-deploy:
     working_directory: /app
     docker:
-      - image: cimg/aws:2023.03
+      - image: docker:17.05.0-ce-git
+      - image: circleci/node:8.11
     steps:
       - checkout
       - setup_remote_docker
@@ -14,6 +15,13 @@ jobs:
       - run:
           name: test
           command: docker run -e CI=true yudhapradiptar/docker-react npm test
+      - run:
+          name: Installing deployment dependencies
+          working_directory: /
+          command: |
+            sudo apt-get -y -qq update
+            sudo apt-get install python-pip python-dev build-essential
+            sudo pip install awsebcli --upgrade
       - run:
           name: deploy
           command: eb deploy Dockerreact-env
