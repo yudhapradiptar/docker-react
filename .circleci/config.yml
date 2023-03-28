@@ -24,8 +24,6 @@ jobs:
       - run:
           name: deploy
           command: eb deploy Dockerreact-env
-
-jobs:
   deploy:
     docker:
       - image: 'cimg/base:stable'
