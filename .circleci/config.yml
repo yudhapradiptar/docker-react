@@ -43,7 +43,7 @@ jobs:
 workflows:
   deploy-workflow:
     jobs:
-      - build-test:
+      - build-test
       - deploy:
           filters:
             branches:
