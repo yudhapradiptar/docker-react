@@ -1,13 +1,10 @@
 version: 2.1
 
-orbs:
-  eb: circleci/aws-elastic-beanstalk@1.0.0
-
 jobs:
   build-test-deploy:
     working_directory: /app
     docker:
-      - image: docker:17.05.0-ce-git
+      - image: 'cimg/base:stable'
     steps:
       - checkout
       - setup_remote_docker
