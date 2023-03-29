@@ -15,6 +15,7 @@ jobs:
           name: test
           command: docker run -e CI=true yudhapradiptar/docker-react npm test
   deploy:
+    working_directory: /app
     docker:
       - image: 'cimg/base:stable'
     steps:
